@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -7636,6 +7636,19 @@ www.johansontechnology.com&lt;p&gt;
 <smd name="6" x="-0.65" y="0.875" dx="0.35" dy="1" layer="1" rot="R180"/>
 <rectangle x1="-0.775" y1="-0.175" x2="-0.5" y2="0.175" layer="21"/>
 </package>
+<package name="2450AT18B100">
+<smd name="1" x="-1.7" y="0" dx="0.8" dy="1.6" layer="1"/>
+<smd name="2" x="1.7" y="0" dx="0.8" dy="1.6" layer="1"/>
+<wire x1="-1.2" y1="0.8" x2="1.2" y2="0.8" width="0.127" layer="21"/>
+<wire x1="-1.2" y1="-0.8" x2="1.2" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="-1.2" y1="0.8" x2="-1.6" y2="0.8" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="0.8" x2="-1.6" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-0.8" x2="-1.2" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="1.2" y1="0.8" x2="1.6" y2="0.8" width="0.127" layer="51"/>
+<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-0.8" x2="1.2" y2="-0.8" width="0.127" layer="51"/>
+<rectangle x1="-1.1" y1="-0.2" x2="-0.2" y2="0.2" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="BALUN-FILTER">
@@ -7652,6 +7665,13 @@ www.johansontechnology.com&lt;p&gt;
 <pin name="GND@1" x="-2.54" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
 <pin name="GND@2" x="0" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
 <pin name="GND@3" x="2.54" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
+</symbol>
+<symbol name="ANTENNA">
+<pin name="ANT" x="0" y="-5.08" length="middle" rot="R90"/>
+<wire x1="-2.54" y1="12.7" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="12.7" width="0.254" layer="94"/>
+<wire x1="2.54" y1="12.7" x2="-2.54" y2="12.7" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -7670,6 +7690,21 @@ www.johansontechnology.com&lt;p&gt;
 <connect gate="G$1" pin="GND@2" pad="5"/>
 <connect gate="G$1" pin="GND@3" pad="6"/>
 <connect gate="G$1" pin="UNBAL" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="2450AT18B100" prefix="ANT">
+<gates>
+<gate name="G$1" symbol="ANTENNA" x="0" y="-5.08"/>
+</gates>
+<devices>
+<device name="" package="2450AT18B100">
+<connects>
+<connect gate="G$1" pin="ANT" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -7732,6 +7767,7 @@ www.johansontechnology.com&lt;p&gt;
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="F1" library="johanson-technology" deviceset="2450BM15A0002" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
+<part name="ANT1" library="johanson-technology" deviceset="2450AT18B100" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7785,6 +7821,7 @@ www.johansontechnology.com&lt;p&gt;
 <instance part="GND10" gate="1" x="58.42" y="0" rot="MR0"/>
 <instance part="F1" gate="G$1" x="170.18" y="25.4"/>
 <instance part="GND14" gate="1" x="170.18" y="10.16" rot="MR0"/>
+<instance part="ANT1" gate="G$1" x="187.96" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -7970,13 +8007,6 @@ www.johansontechnology.com&lt;p&gt;
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
-<net name="SPI3_NSS" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D10"/>
-<wire x1="274.32" y1="27.94" x2="259.08" y2="27.94" width="0.1524" layer="91"/>
-<label x="261.62" y="27.94" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="CS2" class="0">
 <segment>
 <pinref part="CON1" gate="G$1" pin="D8"/>
@@ -8111,27 +8141,6 @@ www.johansontechnology.com&lt;p&gt;
 <label x="48.26" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SPI3_SCK" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="SCK/D13"/>
-<wire x1="274.32" y1="20.32" x2="259.08" y2="20.32" width="0.1524" layer="91"/>
-<label x="261.62" y="20.32" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SPI3_MISO" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="MISO/D12"/>
-<wire x1="274.32" y1="22.86" x2="259.08" y2="22.86" width="0.1524" layer="91"/>
-<label x="261.62" y="22.86" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SPI3_MOSI" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="MOSI/D11"/>
-<wire x1="274.32" y1="25.4" x2="259.08" y2="25.4" width="0.1524" layer="91"/>
-<label x="261.62" y="25.4" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="CS1" class="0">
 <segment>
 <pinref part="CON1" gate="G$1" pin="D7"/>
@@ -8139,60 +8148,28 @@ www.johansontechnology.com&lt;p&gt;
 <label x="261.62" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SDADC1_6P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A0"/>
-<wire x1="200.66" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
-<label x="203.2" y="60.96" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC1_5P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A1"/>
-<wire x1="200.66" y1="58.42" x2="218.44" y2="58.42" width="0.1524" layer="91"/>
-<label x="203.2" y="58.42" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC1_4P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A2"/>
-<wire x1="200.66" y1="55.88" x2="218.44" y2="55.88" width="0.1524" layer="91"/>
-<label x="203.2" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC1_8P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A3"/>
-<wire x1="200.66" y1="53.34" x2="218.44" y2="53.34" width="0.1524" layer="91"/>
-<label x="203.2" y="53.34" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC1_7P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A4"/>
-<wire x1="200.66" y1="50.8" x2="218.44" y2="50.8" width="0.1524" layer="91"/>
-<label x="203.2" y="50.8" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC3_8P" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="A5"/>
-<wire x1="200.66" y1="48.26" x2="218.44" y2="48.26" width="0.1524" layer="91"/>
-<label x="203.2" y="48.26" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SDADC3_7P" class="0">
+<net name="PA6" class="0">
 <segment>
 <pinref part="CON1" gate="G$1" pin="A6"/>
-<wire x1="200.66" y1="45.72" x2="218.44" y2="45.72" width="0.1524" layer="91"/>
-<label x="203.2" y="45.72" size="1.778" layer="95"/>
+<wire x1="203.2" y1="45.72" x2="218.44" y2="45.72" width="0.1524" layer="91"/>
+<label x="205.74" y="45.72" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="S" pin="PA6"/>
+<wire x1="45.72" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
+<label x="48.26" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SDADC3_6P" class="0">
+<net name="PA7" class="0">
 <segment>
 <pinref part="CON1" gate="G$1" pin="A7"/>
-<wire x1="200.66" y1="43.18" x2="218.44" y2="43.18" width="0.1524" layer="91"/>
-<label x="203.2" y="43.18" size="1.778" layer="95"/>
+<wire x1="203.2" y1="43.18" x2="218.44" y2="43.18" width="0.1524" layer="91"/>
+<label x="205.74" y="43.18" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="S" pin="PA7"/>
+<wire x1="45.72" y1="60.96" x2="60.96" y2="60.96" width="0.1524" layer="91"/>
+<label x="48.26" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -8225,48 +8202,6 @@ www.johansontechnology.com&lt;p&gt;
 <junction x="223.52" y="91.44"/>
 </segment>
 </net>
-<net name="VREFSD+" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="REF"/>
-<wire x1="203.2" y1="38.1" x2="218.44" y2="38.1" width="0.1524" layer="91"/>
-<label x="205.74" y="38.1" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="I2C1_SMBA" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D6"/>
-<wire x1="274.32" y1="38.1" x2="259.08" y2="38.1" width="0.1524" layer="91"/>
-<label x="261.62" y="38.1" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="I2C1_SCL" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D5"/>
-<wire x1="274.32" y1="40.64" x2="259.08" y2="40.64" width="0.1524" layer="91"/>
-<label x="261.62" y="40.64" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="I2C1_SDA" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D4"/>
-<wire x1="274.32" y1="43.18" x2="259.08" y2="43.18" width="0.1524" layer="91"/>
-<label x="261.62" y="43.18" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="CAN_RX" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D3"/>
-<wire x1="274.32" y1="45.72" x2="259.08" y2="45.72" width="0.1524" layer="91"/>
-<label x="261.62" y="45.72" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="CAN_TX" class="0">
-<segment>
-<pinref part="CON1" gate="G$1" pin="D2"/>
-<wire x1="274.32" y1="48.26" x2="259.08" y2="48.26" width="0.1524" layer="91"/>
-<label x="261.62" y="48.26" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="32K1" class="0">
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
@@ -8280,161 +8215,59 @@ www.johansontechnology.com&lt;p&gt;
 <pinref part="IC1" gate="S" pin="PD6/XOSC32K_Q1"/>
 </segment>
 </net>
-<net name="WKUP" class="0">
+<net name="CS3" class="0">
 <segment>
 <pinref part="CON1" gate="G$1" pin="D9"/>
 <wire x1="274.32" y1="30.48" x2="259.08" y2="30.48" width="0.1524" layer="91"/>
 <label x="261.62" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB5"/>
-<wire x1="45.72" y1="43.18" x2="60.96" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB4"/>
-<wire x1="45.72" y1="45.72" x2="60.96" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB3"/>
-<wire x1="45.72" y1="48.26" x2="60.96" y2="48.26" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB2"/>
-<wire x1="45.72" y1="50.8" x2="60.96" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB1"/>
-<wire x1="45.72" y1="53.34" x2="60.96" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PB0"/>
-<wire x1="45.72" y1="55.88" x2="60.96" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PA7"/>
-<wire x1="45.72" y1="60.96" x2="60.96" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PA6"/>
-<wire x1="45.72" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
+<net name="SPI_MOSI" class="0">
 <segment>
 <pinref part="IC1" gate="S" pin="PA5/SSI_TXD"/>
 <wire x1="45.72" y1="66.04" x2="60.96" y2="66.04" width="0.1524" layer="91"/>
+<label x="48.26" y="66.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="CON1" gate="G$1" pin="MOSI/D11"/>
+<wire x1="274.32" y1="25.4" x2="259.08" y2="25.4" width="0.1524" layer="91"/>
+<label x="261.62" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="SPI_MISO" class="0">
 <segment>
 <pinref part="IC1" gate="S" pin="PA4/SSI_RXD"/>
 <wire x1="45.72" y1="68.58" x2="60.96" y2="68.58" width="0.1524" layer="91"/>
+<label x="48.26" y="68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="CON1" gate="G$1" pin="MISO/D12"/>
+<wire x1="274.32" y1="22.86" x2="259.08" y2="22.86" width="0.1524" layer="91"/>
+<label x="261.62" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="SPI_NSS" class="0">
 <segment>
 <pinref part="IC1" gate="S" pin="PA3/SSI_SEL"/>
 <wire x1="45.72" y1="71.12" x2="60.96" y2="71.12" width="0.1524" layer="91"/>
+<label x="48.26" y="71.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="CON1" gate="G$1" pin="D10"/>
+<wire x1="274.32" y1="27.94" x2="259.08" y2="27.94" width="0.1524" layer="91"/>
+<label x="261.62" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="SPI_SCK" class="0">
 <segment>
 <pinref part="IC1" gate="S" pin="PA2/SSI_CLK"/>
 <wire x1="45.72" y1="73.66" x2="60.96" y2="73.66" width="0.1524" layer="91"/>
+<label x="48.26" y="73.66" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="N$22" class="0">
 <segment>
-<pinref part="IC1" gate="S" pin="PC0"/>
-<wire x1="124.46" y1="78.74" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC1"/>
-<wire x1="124.46" y1="76.2" x2="111.76" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC2"/>
-<wire x1="124.46" y1="73.66" x2="111.76" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC3"/>
-<wire x1="124.46" y1="71.12" x2="111.76" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$26" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC4"/>
-<wire x1="124.46" y1="68.58" x2="111.76" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC5"/>
-<wire x1="124.46" y1="66.04" x2="111.76" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC6"/>
-<wire x1="124.46" y1="63.5" x2="111.76" y2="63.5" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PC7"/>
-<wire x1="124.46" y1="60.96" x2="111.76" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$30" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PD0"/>
-<wire x1="124.46" y1="55.88" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$31" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PD1"/>
-<wire x1="124.46" y1="53.34" x2="111.76" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$32" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PD2"/>
-<wire x1="124.46" y1="50.8" x2="111.76" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$33" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PD3"/>
-<wire x1="124.46" y1="48.26" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$34" class="0">
-<segment>
-<pinref part="IC1" gate="S" pin="PD4"/>
-<wire x1="124.46" y1="45.72" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="CON1" gate="G$1" pin="SCK/D13"/>
+<wire x1="274.32" y1="20.32" x2="259.08" y2="20.32" width="0.1524" layer="91"/>
+<label x="261.62" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="32K2" class="0">
@@ -8457,9 +8290,9 @@ www.johansontechnology.com&lt;p&gt;
 <label x="114.3" y="30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="F1" gate="G$1" pin="BAL@1"/>
-<wire x1="149.86" y1="30.48" x2="160.02" y2="30.48" width="0.1524" layer="91"/>
-<label x="152.4" y="30.48" size="1.778" layer="95"/>
+<pinref part="F1" gate="G$1" pin="BAL@2"/>
+<wire x1="149.86" y1="25.4" x2="160.02" y2="25.4" width="0.1524" layer="91"/>
+<label x="152.4" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RF_N" class="0">
@@ -8469,9 +8302,9 @@ www.johansontechnology.com&lt;p&gt;
 <label x="114.3" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="F1" gate="G$1" pin="BAL@2"/>
-<wire x1="149.86" y1="25.4" x2="160.02" y2="25.4" width="0.1524" layer="91"/>
-<label x="152.4" y="25.4" size="1.778" layer="95"/>
+<pinref part="F1" gate="G$1" pin="BAL@1"/>
+<wire x1="149.86" y1="30.48" x2="160.02" y2="30.48" width="0.1524" layer="91"/>
+<label x="152.4" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -8523,20 +8356,8 @@ www.johansontechnology.com&lt;p&gt;
 <net name="N$2" class="0">
 <segment>
 <pinref part="F1" gate="G$1" pin="UNBAL"/>
-<wire x1="180.34" y1="27.94" x2="182.88" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="27.94" x2="182.88" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="25.4" x2="185.42" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="25.4" x2="185.42" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="30.48" x2="187.96" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="30.48" x2="187.96" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="25.4" x2="190.5" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="190.5" y1="25.4" x2="190.5" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="190.5" y1="30.48" x2="193.04" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="30.48" x2="193.04" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="25.4" x2="195.58" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="25.4" x2="195.58" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="30.48" x2="198.12" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="30.48" x2="198.12" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="ANT1" gate="G$1" pin="ANT"/>
+<wire x1="180.34" y1="27.94" x2="187.96" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
