@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -8013,6 +8013,11 @@ www.johansontechnology.com&lt;p&gt;
 <wire x1="274.32" y1="33.02" x2="259.08" y2="33.02" width="0.1524" layer="91"/>
 <label x="261.62" y="33.02" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="S" pin="PC1"/>
+<wire x1="121.92" y1="76.2" x2="111.76" y2="76.2" width="0.1524" layer="91"/>
+<label x="114.3" y="76.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="JTDO" class="0">
 <segment>
@@ -8147,6 +8152,11 @@ www.johansontechnology.com&lt;p&gt;
 <wire x1="274.32" y1="35.56" x2="259.08" y2="35.56" width="0.1524" layer="91"/>
 <label x="261.62" y="35.56" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="S" pin="PC2"/>
+<wire x1="121.92" y1="73.66" x2="111.76" y2="73.66" width="0.1524" layer="91"/>
+<label x="114.3" y="73.66" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PA6" class="0">
 <segment>
@@ -8220,6 +8230,11 @@ www.johansontechnology.com&lt;p&gt;
 <pinref part="CON1" gate="G$1" pin="D9"/>
 <wire x1="274.32" y1="30.48" x2="259.08" y2="30.48" width="0.1524" layer="91"/>
 <label x="261.62" y="30.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="S" pin="PC0"/>
+<wire x1="121.92" y1="78.74" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
+<label x="114.3" y="78.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPI_MOSI" class="0">
