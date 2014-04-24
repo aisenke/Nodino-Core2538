@@ -4680,6 +4680,16 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 <rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
+<package name="C1206COMPACT">
+<wire x1="0.9525" y1="-0.8128" x2="-0.9652" y2="-0.8128" width="0.1524" layer="21"/>
+<wire x1="0.9525" y1="0.8128" x2="-0.9652" y2="0.8128" width="0.1524" layer="21"/>
+<smd name="2" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<smd name="1" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<text x="-1.397" y="1.143" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.397" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6891" y1="-0.8763" x2="-0.9525" y2="0.8763" layer="51"/>
+<rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="C-EU">
@@ -5393,6 +5403,15 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 </technologies>
 </device>
 <device name="C0402COMPACT" package="C0402COMPACT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="C1206COMPACT" package="C1206COMPACT">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -7196,6 +7215,84 @@ Based on the datasheets for the following products.&lt;br&gt;
 <text x="-3.81" y="8.255" size="0.762" layer="21" font="vector" ratio="10" align="top-center">TMS</text>
 <text x="-6.35" y="8.255" size="0.762" layer="21" font="vector" ratio="10" align="top-center">TRST</text>
 </package>
+<package name="NODINO-JTAG-BASE">
+<wire x1="-11.43" y1="-12.7" x2="11.43" y2="-12.7" width="0.127" layer="51"/>
+<wire x1="13.97" y1="-10.16" x2="13.97" y2="10.16" width="0.127" layer="51"/>
+<wire x1="11.43" y1="12.7" x2="-11.43" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-13.97" y1="10.16" x2="-13.97" y2="-10.16" width="0.127" layer="51"/>
+<wire x1="-13.97" y1="10.16" x2="-11.43" y2="12.7" width="0.127" layer="51" curve="-90"/>
+<wire x1="11.43" y1="12.7" x2="13.97" y2="10.16" width="0.127" layer="51" curve="-90"/>
+<wire x1="13.97" y1="-10.16" x2="11.43" y2="-12.7" width="0.127" layer="51" curve="-90"/>
+<wire x1="-11.43" y1="-12.7" x2="-13.97" y2="-10.16" width="0.127" layer="51" curve="-90"/>
+<pad name="1" x="-11.43" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="2" x="-8.89" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="3" x="-6.35" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="4" x="-3.81" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="5" x="-1.27" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="6" x="1.27" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="7" x="3.81" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="8" x="6.35" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="9" x="8.89" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="10" x="11.43" y="-10.16" drill="0.5" diameter="1.016"/>
+<pad name="11" x="11.43" y="-7.62" drill="0.5" diameter="1.016"/>
+<pad name="12" x="11.43" y="-5.08" drill="0.5" diameter="1.016"/>
+<pad name="13" x="11.43" y="-2.54" drill="0.5" diameter="1.016"/>
+<pad name="14" x="11.43" y="0" drill="0.5" diameter="1.016"/>
+<pad name="15" x="11.43" y="2.54" drill="0.5" diameter="1.016"/>
+<pad name="16" x="11.43" y="5.08" drill="0.5" diameter="1.016"/>
+<pad name="17" x="11.43" y="7.62" drill="0.5" diameter="1.016"/>
+<pad name="18" x="11.43" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="19" x="8.89" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="20" x="6.35" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="21" x="3.81" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="22" x="1.27" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="23" x="-1.27" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="24" x="-3.81" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="25" x="-6.35" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="26" x="-8.89" y="10.16" drill="0.5" diameter="1.016"/>
+<pad name="27" x="-11.43" y="10.16" drill="0.5" diameter="1.016"/>
+<text x="-11.43" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">GND</text>
+<text x="-8.89" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">RST</text>
+<text x="-6.35" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">D6</text>
+<text x="-3.81" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">D5</text>
+<text x="-1.27" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">D4</text>
+<text x="1.27" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">D3</text>
+<text x="3.81" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">D2</text>
+<text x="6.35" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TX1</text>
+<text x="8.89" y="12.065" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">RX0</text>
+<text x="8.89" y="5.3975" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A5</text>
+<text x="8.89" y="2.8575" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A4</text>
+<text x="8.89" y="6.985" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A6</text>
+<text x="8.89" y="8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A7</text>
+<text x="8.89" y="0.3175" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A3</text>
+<text x="8.89" y="-2.2225" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A2</text>
+<text x="8.89" y="-4.7625" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A1</text>
+<text x="8.89" y="-6.0325" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">A0</text>
+<text x="8.89" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D13</text>
+<text x="6.35" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D12</text>
+<text x="3.81" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D11</text>
+<text x="1.27" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D10</text>
+<text x="-1.27" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D9</text>
+<text x="-3.81" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D8</text>
+<text x="-6.35" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">D7</text>
+<text x="-8.89" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">3V3</text>
+<text x="-11.43" y="-8.5725" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">5V</text>
+<wire x1="11.43" y1="-10.16" x2="10.16" y2="-8.89" width="0.127" layer="22"/>
+<wire x1="8.89" y1="-7.62" x2="8.255" y2="-6.985" width="0.127" layer="22"/>
+<wire x1="8.255" y1="-6.985" x2="5.715" y2="-6.985" width="0.127" layer="22"/>
+<wire x1="11.43" y1="10.16" x2="10.16" y2="8.89" width="0.127" layer="22"/>
+<text x="6.35" y="-6.6675" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="bottom-center">REF</text>
+<pad name="28" x="3.81" y="6.35" drill="0.5" diameter="1.016"/>
+<pad name="29" x="1.27" y="6.35" drill="0.5" diameter="1.016"/>
+<pad name="30" x="-1.27" y="6.35" drill="0.5" diameter="1.016"/>
+<pad name="31" x="-3.81" y="6.35" drill="0.5" diameter="1.016"/>
+<pad name="32" x="-6.35" y="6.35" drill="0.5" diameter="1.016"/>
+<text x="3.81" y="8.255" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TCK</text>
+<text x="1.27" y="8.255" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TDI</text>
+<text x="-1.27" y="8.255" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TDO</text>
+<text x="-3.81" y="8.255" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TMS</text>
+<text x="-6.35" y="8.255" size="0.762" layer="22" font="vector" ratio="10" rot="MR0" align="top-center">TRST</text>
+</package>
 </packages>
 <symbols>
 <symbol name="NODINO-JTAG">
@@ -7285,6 +7382,45 @@ Based on the datasheets for the following products.&lt;br&gt;
 </technologies>
 </device>
 <device name="REF" package="NODINO-JTAG-TOP">
+<connects>
+<connect gate="G$1" pin="3V3" pad="2"/>
+<connect gate="G$1" pin="5V" pad="1"/>
+<connect gate="G$1" pin="A0" pad="11"/>
+<connect gate="G$1" pin="A1" pad="12"/>
+<connect gate="G$1" pin="A2" pad="13"/>
+<connect gate="G$1" pin="A3" pad="14"/>
+<connect gate="G$1" pin="A4" pad="15"/>
+<connect gate="G$1" pin="A5" pad="16"/>
+<connect gate="G$1" pin="A6" pad="17"/>
+<connect gate="G$1" pin="A7" pad="18"/>
+<connect gate="G$1" pin="D10" pad="6"/>
+<connect gate="G$1" pin="D2" pad="21"/>
+<connect gate="G$1" pin="D3" pad="22"/>
+<connect gate="G$1" pin="D4" pad="23"/>
+<connect gate="G$1" pin="D5" pad="24"/>
+<connect gate="G$1" pin="D6" pad="25"/>
+<connect gate="G$1" pin="D7" pad="3"/>
+<connect gate="G$1" pin="D8" pad="4"/>
+<connect gate="G$1" pin="D9" pad="5"/>
+<connect gate="G$1" pin="GND" pad="27"/>
+<connect gate="G$1" pin="JTCK" pad="28"/>
+<connect gate="G$1" pin="JTDI" pad="29"/>
+<connect gate="G$1" pin="JTDO" pad="30"/>
+<connect gate="G$1" pin="JTMS" pad="31"/>
+<connect gate="G$1" pin="JTRST" pad="32"/>
+<connect gate="G$1" pin="MISO/D12" pad="8"/>
+<connect gate="G$1" pin="MOSI/D11" pad="7"/>
+<connect gate="G$1" pin="REF" pad="10"/>
+<connect gate="G$1" pin="RST" pad="26"/>
+<connect gate="G$1" pin="RX0" pad="19"/>
+<connect gate="G$1" pin="SCK/D13" pad="9"/>
+<connect gate="G$1" pin="TX1" pad="20"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="BASE" package="NODINO-JTAG-BASE">
 <connects>
 <connect gate="G$1" pin="3V3" pad="2"/>
 <connect gate="G$1" pin="5V" pad="1"/>
@@ -7649,6 +7785,19 @@ www.johansontechnology.com&lt;p&gt;
 <wire x1="1.6" y1="-0.8" x2="1.2" y2="-0.8" width="0.127" layer="51"/>
 <rectangle x1="-1.1" y1="-0.2" x2="-0.2" y2="0.2" layer="21"/>
 </package>
+<package name="2450BM15A0002-SLIM">
+<wire x1="-0.95" y1="0.575" x2="0.95" y2="0.575" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="0.575" x2="0.95" y2="-0.575" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="-0.575" x2="-0.95" y2="-0.575" width="0.1016" layer="51"/>
+<wire x1="-0.95" y1="-0.575" x2="-0.95" y2="0.575" width="0.1016" layer="51"/>
+<smd name="1" x="-0.65" y="-0.775" dx="0.35" dy="0.75" layer="1"/>
+<smd name="2" x="0" y="-0.775" dx="0.35" dy="0.75" layer="1"/>
+<smd name="3" x="0.65" y="-0.775" dx="0.35" dy="0.75" layer="1"/>
+<smd name="4" x="0.65" y="0.775" dx="0.35" dy="0.75" layer="1" rot="R180"/>
+<smd name="5" x="0" y="0.775" dx="0.35" dy="0.75" layer="1" rot="R180"/>
+<smd name="6" x="-0.65" y="0.775" dx="0.35" dy="0.75" layer="1" rot="R180"/>
+<rectangle x1="-0.775" y1="-0.175" x2="-0.5" y2="0.175" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="BALUN-FILTER">
@@ -7683,6 +7832,19 @@ www.johansontechnology.com&lt;p&gt;
 </gates>
 <devices>
 <device name="" package="2450BM15A0002">
+<connects>
+<connect gate="G$1" pin="BAL@1" pad="3"/>
+<connect gate="G$1" pin="BAL@2" pad="4"/>
+<connect gate="G$1" pin="GND@1" pad="2"/>
+<connect gate="G$1" pin="GND@2" pad="5"/>
+<connect gate="G$1" pin="GND@3" pad="6"/>
+<connect gate="G$1" pin="UNBAL" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SLIM" package="2450BM15A0002-SLIM">
 <connects>
 <connect gate="G$1" pin="BAL@1" pad="3"/>
 <connect gate="G$1" pin="BAL@2" pad="4"/>
